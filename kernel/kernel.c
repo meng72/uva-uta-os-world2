@@ -33,9 +33,11 @@ void kernel_main() {
 	enable_interrupt_controller(0/*coreid*/);
 	/* turn on cpu irq  */
 	/* STUDENT: TODO: your code here */
+	//enable_irq();
 	
 	/* sched ticks alive. preemptive scheduler is on */
 	/* STUDENT: TODO: your code here */
+	//generic_timer_init();
 	
 	/* now cpu is on its boot stack (boot.S) belonging to the idle task. 
 	schedule() will jump off to kernel stacks belonging to normal tasks
@@ -59,6 +61,7 @@ void init(int arg/*ignored*/) {
 
 	// Q2: quest: "two cooperative printers"
 	/* STUDENT: TODO: your code here */
+	test_kern_tasks_print();
 	// Q4: quest: "two donuts"
 	/* STUDENT: TODO: your code here */
 	// test_kern_task_mgmt();
