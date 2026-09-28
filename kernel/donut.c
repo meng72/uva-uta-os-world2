@@ -34,6 +34,8 @@ enum {K=4}; // donut scale factor, see code below
 _Static_assert(80*K  <= NN/2); // columns
 _Static_assert(22*K*2  <= NN/2); // rows
 
+#define GRID 3
+
 static char b[N_DONUTS][1760];        // text buffer (W 80 H 22?
 static signed char z[N_DONUTS][1760]; // z buffer
 
