@@ -33,6 +33,7 @@ void kernel_main() {
 	enable_interrupt_controller(0/*coreid*/);
 	generic_timer_init();
 	/* turn on cpu irq  */
+	enable_irq();
 	
 	
 	/* sched ticks alive. preemptive scheduler is on */
