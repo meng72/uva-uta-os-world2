@@ -27,10 +27,15 @@ cpu_switch_to:
 	add x8, x1, x10 //next task_struct + offset
 	
 	// below: restore the CPU context of "switch_to" task to CPU regs
-	/* STUDENT: TODO: your code here */
+	ldp	x19, x20, [x8], #16		
+	ldp	x21, x22, [x8], #16
+	ldp	x23, x24, [x8], #16
+	ldp	x25, x26, [x8], #16
+	ldp	x27, x28, [x8], #16
+	ldp	x29, x9, [x8], #16
 	ldr	x30, [x8]				// x30 == LR
 	// restore the value of sp, which is already loaded from the cpu context
-mov sp, x0 /* STUDENT: TODO: replace this */
+	mov sp, x9
 
 	// The `ret` instruction will jump to the location pointed to by the link 
 	// register (LR or `x30`). If we are switching to a task for the first time, 
