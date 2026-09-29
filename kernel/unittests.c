@@ -319,7 +319,9 @@ void test_kern_tasks_donut(void) {
     // spawn N donut tasks 
     for (int i=0; i<N_DONUTS; i++) {
         snprintf(name, 10, "donut-%d", i); 
-       	kern_task_donut(i);
+        int res = copy_process(PF_KTHREAD, (unsigned long)&kern_task_donut, 
+		i,
+		"kern-1");
     }
 
 	// current we are on the "init" task. 
