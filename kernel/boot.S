@@ -69,7 +69,8 @@ el1_entry:
 setup_sp: 	
 	// Q1: quest: boot. Set sp to be at the end (or top) of the bootstack (cpu0)
 	/* STUDENT: TODO: your code here */
-	ldr x1, =boot_stacks	// sched.c		
+	ldr x1, =boot_stacks	// sched.c
+	add sp, x1, #PAGE_SIZE		
 	/* STUDENT: TODO: your code here */
 	// NB: we aren't use sp yet -- until we call a C function for the 1st time
 
