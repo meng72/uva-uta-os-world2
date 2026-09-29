@@ -31,8 +31,9 @@ void kernel_main() {
 	fb_init(); 		// reserve fb memory other page allocations
 	sys_timer_init(); 		// kernel timer: delay, timekeeping...
 	enable_interrupt_controller(0/*coreid*/);
-	/* turn on cpu irq  */
 	generic_timer_init();
+	/* turn on cpu irq  */
+	
 	
 	/* sched ticks alive. preemptive scheduler is on */
 	/* STUDENT: TODO: your code here */
