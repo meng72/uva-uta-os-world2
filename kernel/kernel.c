@@ -31,6 +31,7 @@ void kernel_main() {
 	fb_init(); 		// reserve fb memory other page allocations
 	sys_timer_init(); 		// kernel timer: delay, timekeeping...
 	enable_interrupt_controller(0/*coreid*/);
+	
 	/* turn on cpu irq  */
 	/* STUDENT: TODO: your code here */
 	
@@ -58,7 +59,7 @@ void init(int arg/*ignored*/) {
     W("entering init");
 
 	// Q2: quest: "two cooperative printers"
-	/* STUDENT: TODO: your code here */
+	test_kern_tasks_print();
 	// Q4: quest: "two donuts"
 	/* STUDENT: TODO: your code here */
 	// test_kern_task_mgmt();
