@@ -137,7 +137,7 @@ void schedule() {
 		if (max_cr > 0) {
             I("cpu%d picked pid %d state %s credits %ld", cpu, next, 
                 states[task[next]->state], p->credits);
-switch_to(0); /* STUDENT: TODO: replace this */
+		switch_to(task[next]); 
 			break;
         }
 
@@ -157,7 +157,7 @@ switch_to(0); /* STUDENT: TODO: replace this */
             procdump(); 
             #endif
             /* if cpu already on idle task, this will do nothing */
-switch_to(0); /* STUDENT: TODO: replace this */
+		switch_to(idle_tasks[cpu]);
             break;
         }
 	}
