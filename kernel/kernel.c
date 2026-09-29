@@ -32,6 +32,7 @@ void kernel_main() {
 	sys_timer_init(); 		// kernel timer: delay, timekeeping...
 	enable_interrupt_controller(0/*coreid*/);
 	generic_timer_init();
+	
 	/* turn on cpu irq  */
 	enable_irq();
 	
@@ -60,7 +61,7 @@ void init(int arg/*ignored*/) {
     W("entering init");
 
 	// Q2: quest: "two cooperative printers"
-	/* STUDENT: TODO: your code here */
+	test_kern_tasks_print();
 	// Q4: quest: "two donuts"
 	/* STUDENT: TODO: your code here */
 	// test_kern_task_mgmt();
