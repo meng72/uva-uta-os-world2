@@ -125,7 +125,7 @@ vectors:
 	//  		This is the mode that our kernel is currently using
 	ventry	sync_invalid_el1h			// Synchronous EL1h
 	// IRQ EL1h  
-ventry irq_invalid_el1t /* STUDENT: TODO: replace this */
+	ventry irq_invalid_el1h 
 	ventry	fiq_invalid_el1h			// FIQ EL1h
 	ventry	error_invalid_el1h			// Error EL1h
 
