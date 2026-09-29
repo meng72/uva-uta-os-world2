@@ -32,7 +32,7 @@ void kernel_main() {
 	sys_timer_init(); 		// kernel timer: delay, timekeeping...
 	enable_interrupt_controller(0/*coreid*/);
 	/* turn on cpu irq  */
-	/* STUDENT: TODO: your code here */
+	generic_timer_init();
 	
 	/* sched ticks alive. preemptive scheduler is on */
 	/* STUDENT: TODO: your code here */
