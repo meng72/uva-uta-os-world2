@@ -308,9 +308,9 @@ void kern_task_donut(int idx) {
         get_el(), myproc()->pid, idx);
     // exp: diff proirities --> donuts will turn at diff rates
     	struct task_struct *cur = myproc();
-    	if(idx == 4)
-    		cur->priority = 1;
-    	else cur->priority = 3;
+    	if(idx == 1)
+    		cur->priority = 4;
+    	else cur->priority = 1;
 	donut(idx);
 }
 
@@ -321,7 +321,7 @@ void test_kern_tasks_donut(void) {
     donut_canvas_init(); 
     
     // spawn N donut tasks 
-    for (int i=0; i<N_DONUTS; i++) {
+    for (int i=0; i<2; i++) {
         snprintf(name, 10, "donut-%d", i); 
         int res = copy_process(PF_KTHREAD, (unsigned long)&kern_task_donut, 
 		i,

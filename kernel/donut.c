@@ -147,7 +147,7 @@ void donut_pixel(int idx) {
                 x = 1;
             }
         }
-        /* STUDENT: TODO: your code here */
+        yield();
     }
 }
 
