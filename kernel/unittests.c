@@ -308,7 +308,7 @@ void kern_task_donut(int idx) {
         get_el(), myproc()->pid, idx);
     // exp: diff proirities --> donuts will turn at diff rates
     	struct task_struct *cur = myproc();
-    	cur->priority = idx;
+    	cur->priority = idx + 1;
 	donut(idx);
 }
 
