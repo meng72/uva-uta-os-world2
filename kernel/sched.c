@@ -502,7 +502,8 @@ void exit_process(int status) {
     /* switch the cpu away from zombie's kern stack to the idle task, which we
     know exists for sure. the next timertick will call schedule() and switch 
     to a normal task (if any) */
-    /* STUDENT: TODO: your code here */
+    int cid = cpuid();
+    switch_to(idle_tasks[cid]);
 
     /* the "switch-to" task will resume from the schedule()'s exit path, which
     will release sched_lock after sched_lock is released, the parent can proceed

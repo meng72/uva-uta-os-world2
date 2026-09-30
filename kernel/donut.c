@@ -81,6 +81,10 @@ static PIXEL int2rgb (int value);
 void donut_pixel(int idx) {
     int sA = 1024, cA = 0, sB = 1024, cB = 0, _;
     
+    unsigned int t1, t2;
+    unsigned int x1, x2;
+    current_time(&t1, &x1);
+    
     while (1) {
         memset(b[idx], 0, 1760);  // text buffer 0: black bkgnd
         memset(z[idx], 127, 1760); // z buffer
@@ -147,7 +151,11 @@ void donut_pixel(int idx) {
                 x = 1;
             }
         }
-        yield();
+        current_time(&t2, &x2);
+        if(t2-t1 > 3 && idx == 0)
+        	exit_process(0);
+        
+        //yield();
     }
 }
 
