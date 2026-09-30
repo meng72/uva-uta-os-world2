@@ -307,6 +307,10 @@ void kern_task_donut(int idx) {
 	printf("process started EL %d, pid %d idx %d\r\n", 
         get_el(), myproc()->pid, idx);
     // exp: diff proirities --> donuts will turn at diff rates
+    	struct task_struct *cur = myproc();
+    	if(idx == 4)
+    		cur->priority = 1;
+    	else cur->priority = 3;
 	donut(idx);
 }
 
