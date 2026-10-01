@@ -28,8 +28,21 @@ static inline void setpixel(unsigned char *buf, int x, int y, int pit, PIXEL p) 
 // canvas layout, 2x2
 static const int xoff[] = {0,NN/2,0,NN/2};
 static const int yoff[] = {0,0,NN/2,NN/2};
+/*static const int xoff[] = {
+    0, NN/5, 2*NN/5, 3*NN/5, 4*NN/5,
+    0, NN/5, 2*NN/5, 3*NN/5, 4*NN/5,
+    0, NN/5, 2*NN/5, 3*NN/5, 4*NN/5,
+    0, NN/5, 2*NN/5, 3*NN/5, 4*NN/5,
+    0, NN/5, 2*NN/5, 3*NN/5, 4*NN/5
+};
+static const int yoff[] = {
+    0, 0, 0, 0, 0,
+    NN/5, NN/5, NN/5, NN/5, NN/5,
+    2*NN/5, 2*NN/5, 2*NN/5, 2*NN/5, 2*NN/5,
+    3*NN/5, 3*NN/5, 3*NN/5, 3*NN/5, 3*NN/5,
+    4*NN/5, 4*NN/5, 4*NN/5, 4*NN/5, 4*NN/5
+};*/
 _Static_assert(N_DONUTS <= NELEM(xoff));
-
 enum {K=4}; // donut scale factor, see code below
 _Static_assert(80*K  <= NN/2); // columns
 _Static_assert(22*K*2  <= NN/2); // rows
@@ -118,8 +131,8 @@ void donut_pixel(int idx) {
             }
             R(9, 7, cj, sj) // rotate j
         }
-        R(5, 7, cA, sA);
-        R(5, 8, cB, sB);
+        R(5 * (idx + 1), 7, cA, sA);
+        R(5 * (idx + 1), 8, cB, sB);
 
         // screen_clear(idx);   // not needed
         int offsetx = xoff[idx], offsety = yoff[idx]; 
@@ -148,6 +161,7 @@ void donut_pixel(int idx) {
             }
         }
         /* STUDENT: TODO: your code here */
+        yield();
     }
 }
 
