@@ -72,6 +72,8 @@ setup_sp:
 	ldr x1, =boot_stacks	// sched.c		
 	/* STUDENT: TODO: your code here */
 	// NB: we aren't use sp yet -- until we call a C function for the 1st time
+	add x1, x1, #4096
+	mov sp, x1	
 
 	// install irq vectors
 	ldr x0, =vectors	// load VBAR_EL1 vector table addr

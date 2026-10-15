@@ -28,7 +28,7 @@
 /* sched interval, for arm generic timer. 
 when on qemu, arm generic timer is at 1MHz by default
 on rpi3, it's also 1MHz. */
-int interval = (1 * 1000 * 1000 / SCHED_TICK_HZ);
+int interval = (60 * 1000 * 1000 / SCHED_TICK_HZ);
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -76,6 +76,7 @@ void handle_generic_timer_irq(void)  {
 	
 	// drive the scheduler
 	/* STUDENT: TODO: your code here */
+	timer_tick();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
